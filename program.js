@@ -1,10 +1,9 @@
-
 // https://nodeschool.io/
 // https://github.com/workshopper/learnyounode
+const fs = require('fs');
 
-let sum = 0;
-for (let i = 2; i < process.argv.length; i++) {
-    sum += +process.argv[i];
-}
+let bufferObject = fs.readFileSync(process.argv[2]);
 
-console.log(sum);
+let lines = bufferObject.toString().split('\n').length - 1;
+
+console.log(lines);
