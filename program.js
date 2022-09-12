@@ -1,9 +1,12 @@
 // https://nodeschool.io/
 // https://github.com/workshopper/learnyounode
-const fs = require('fs');
+var fs = require('fs');
+var file = process.argv[2];
 
-let bufferObject = fs.readFileSync(process.argv[2]);
-
-let lines = bufferObject.toString().split('\n').length - 1;
-
-console.log(lines);
+fs.readFile(file, (err, contents) => {
+    if (err) {
+        return console.log(err);
+    }
+    var lines = contents.toString().split('\n').length - 1;
+    console.log(lines);
+});
