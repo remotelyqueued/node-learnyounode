@@ -1,11 +1,12 @@
 // https://nodeschool.io/
 // https://github.com/workshopper/learnyounode
-var myModule = require('./module.js');
+
+var mymodule = require('./module.js');
 
 var directory = process.argv[2];
-var ext = '.' + process.argv[3];
+var extension = process.argv[3];
 
-myModule(directory, ext, (err, data) => {
-    if (err) return;
+mymodule(directory, extension, (err, data) => {
+    if (err) return console.log(err);
     console.log(data);
 });
