@@ -1,5 +1,8 @@
 const http = require('http');
-const url = process.argv[2];
+
+const url1 = process.argv[2];
+const url2 = process.argv[3];
+const url3 = process.argv[4];
 
 function callback(response) {
     let string = '';
@@ -8,9 +11,6 @@ function callback(response) {
         string += chunk;
     });
     response.on('end', function () {
-        console.log(string.length);
         console.log(string);
     });
 }
-
-http.get(url, callback);
