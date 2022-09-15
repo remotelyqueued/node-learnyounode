@@ -1,8 +1,8 @@
-var fs = require('fs');
-var path = require('path');
+const fs = require('fs');
+const path = require('path');
 
-module.exports = function (directoryName, extension, callback) {
-    fs.readdir(directoryName, (error, files) => {
+module.exports = function (directory, extension, callback) {
+    fs.readdir(directory, (error, files) => {
         if (error) return callback(error);
         files = files.filter(file => {
             return path.extname(file) === '.' + extension;
