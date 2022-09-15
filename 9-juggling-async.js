@@ -1,16 +1,21 @@
 const http = require('http');
+const urls = process.argv.slice(2);
 
-const url1 = process.argv[2];
-const url2 = process.argv[3];
-const url3 = process.argv[4];
+const geturl = function (url) {
+    return new Promise((resolve, reject) => {
+        http.get(url, response => {
+            let string = '';
+            response.setEncoding('utf-8');
+            response.on('data', chunk => (string += chunk));
+            response.on('end', () => resolve(string));
+        });
+    });
+};
 
-function callback(response) {
-    let string = '';
-    response.setEncoding('utf-8');
-    response.on('data', function (chunk) {
-        string += chunk;
+const promises = [geturl(urls[0]), geturl(urls[1]), geturl(urls[2])];
+
+Promise.all(promises).then(values => {
+    values.forEach(value => {
+        console.log(value);
     });
-    response.on('end', function () {
-        console.log(string);
-    });
-}
+});
