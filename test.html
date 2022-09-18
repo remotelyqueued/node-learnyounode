@@ -7,19 +7,19 @@
         <link
             rel="icon"
             href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎯</text></svg>" />
-        <title>Document</title>
+        <title>Test 13.</title>
     </head>
     <body>
         <script>
+            // assuming the server is listening on 8080
             async function main() {
-                await fetch(
+                const regularTime = await fetch(
                     'http://127.0.0.1:8080/api/parsetime?iso=2013-08-10T12:10:15.474Z'
                 );
-               await fetch(
+                const unixTime = await fetch(
                     'http://127.0.0.1:8080/api/unixtime?iso=2013-08-10T12:10:15.474Z'
                 );
-
-                
+                console.log(regularTime, unixTime);
             }
             main();
         </script>
