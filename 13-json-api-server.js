@@ -34,6 +34,7 @@ function unixtime(time) {
     return { unixtime: time.getTime() };
 }
 
+// for testing purposes
 function setheaders() {
     return {
         'Content-Type': 'application/json',

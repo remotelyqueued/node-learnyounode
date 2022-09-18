@@ -42,7 +42,6 @@ function getResults(url) {
 // );
 
 // method 2
-
 // const geturl = function (url) {
 //     return new Promise((resolve, reject) => {
 //         http.get(url, response => {
