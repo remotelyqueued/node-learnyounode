@@ -1,2 +1,2 @@
 # learnyounode
-learn you node solutions
+learnyounode solutions

@@ -1,5 +1,5 @@
 const http = require('http');
-const port = process.argv[2];
+const port = Number(process.argv[2]);
 
 http.createServer((request, response) => {
     request.on('error', err => {
